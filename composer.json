@@ -1,0 +1,22 @@
+{
+  "name": "creaminternet/module-redjepakketje",
+  "description": "Red je Pakketje Shipments module for Magento 2.",
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Cream\\RedJePakketje\\": "src/"
+    }
+  },
+  "repositories": {
+    "magento": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  }
+}
