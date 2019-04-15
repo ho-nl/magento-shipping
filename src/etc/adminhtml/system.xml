@@ -56,10 +56,10 @@
             <tab>redjepakketje</tab>
             <resource>Cream_RedJePakketje::label_config</resource>
 
-            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
 
-                <field id="label_type" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="label_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Label Type</label>
                     <source_model>Cream\RedJePakketje\Model\Config\Source\LabelType</source_model>
                     <comment>The type of the label (e.g: PDF, PNG or ZPL) when generated.</comment>
@@ -69,6 +69,31 @@
                     <label>Label Size</label>
                     <source_model>Cream\RedJePakketje\Model\Config\Source\LabelSize</source_model>
                     <comment>The size of the label (e.g: A6 or A7) when generated.</comment>
+                </field>
+            </group>
+        </section>
+
+        <section id="redjepakketje_shipping_methods"  translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Shipping Methods</label>
+            <tab>redjepakketje</tab>
+            <resource>Cream_RedJePakketje::shipping_methods</resource>
+
+            <group id="standard" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Standard Shipping Method</label>
+
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="showmethod" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Method if Not Applicable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Displayed Error Message</label>
+                    <comment>This is shown if the method is not applicable</comment>
                 </field>
             </group>
         </section>
