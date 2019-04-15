@@ -95,6 +95,22 @@
                     <label>Displayed Error Message</label>
                     <comment>This is shown if the method is not applicable</comment>
                 </field>
+
+                <field id="title_before_cutoff" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title (before cut-off)</label>
+                </field>
+
+                <field id="title_after_cutoff" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title (after cut-off)</label>
+                </field>
+
+                <field id="title_weekend" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title (during weekend)</label>
+                </field>
+
+                <field id="title_holiday" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title (during holiday)</label>
+                </field>
             </group>
         </section>
     </system>
