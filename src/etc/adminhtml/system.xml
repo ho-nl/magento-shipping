@@ -12,6 +12,7 @@
 
             <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
+
                 <field id="module_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable Module</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -27,6 +28,7 @@
 
             <group id="api_keys" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>API Keys</label>
+
                 <field id="test_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Test API Key</label>
                 </field>
@@ -38,12 +40,35 @@
 
             <group id="api_urls" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>API Urls</label>
+
                 <field id="test_url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Test URL</label>
                 </field>
 
                 <field id="live_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Live URL</label>
+                </field>
+            </group>
+        </section>
+
+        <section id="redjepakketje_label_configuration"  translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Label Configuration</label>
+            <tab>redjepakketje</tab>
+            <resource>Cream_RedJePakketje::label_config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="label_type" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label Type</label>
+                    <source_model>Cream\RedJePakketje\Model\Config\Source\LabelType</source_model>
+                    <comment>The type of the label (e.g: PDF, PNG or ZPL) when generated.</comment>
+                </field>
+
+                <field id="label_size" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label Size</label>
+                    <source_model>Cream\RedJePakketje\Model\Config\Source\LabelSize</source_model>
+                    <comment>The size of the label (e.g: A6 or A7) when generated.</comment>
                 </field>
             </group>
         </section>
