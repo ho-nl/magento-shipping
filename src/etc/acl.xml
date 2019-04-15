@@ -11,6 +11,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Cream_RedJePakketje::redjepakketje" title="Red je Pakketje" sortOrder="10">
                     <resource id="Cream_RedJePakketje::api_config" title="Red je Pakketje API Configuration" sortOrder="10" />
+                    <resource id="Cream_RedJePakketje::label_config" title="Red je Pakketje Label Configuration" sortOrder="20" />
                 </resource>
             </resource>
         </resources>
