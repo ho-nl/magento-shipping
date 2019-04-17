@@ -127,6 +127,16 @@
                 <field id="description_holiday" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description (during holiday)</label>
                 </field>
+
+                <field id="price_before_cutoff" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price (before cut-off)</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+
+                <field id="price_after_cutoff" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price (after cut-off)</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
             </group>
         </section>
     </system>
