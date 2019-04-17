@@ -137,6 +137,11 @@
                     <label>Price (after cut-off)</label>
                     <validate>validate-number validate-zero-or-greater</validate>
                 </field>
+
+                <field id="cutoff_time" translate="label" type="time" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cut-off Time Same Day Delivery</label>
+                    <comment>Time after which the shipping estimation will adjusted by an additional working day.</comment>
+                </field>
             </group>
         </section>
     </system>
