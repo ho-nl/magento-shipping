@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    // Bind click to "Add" buttons and bind datepicker to added date fields
+    require(["jquery", "jquery/ui"], function ($) {
+        $(function(){
+            function bindDatePicker() {
+                setTimeout(function() {
+                    $(".js-date-excluded-datepicker").datepicker( { dateFormat: "DD, dd MM" } );
+                }, 50);
+            }
+
+            bindDatePicker();
+
+            $("button.action-add").on("click", function(e) {
+                bindDatePicker();
+            });
+        });
+    });
+</script>

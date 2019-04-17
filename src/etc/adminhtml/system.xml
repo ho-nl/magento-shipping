@@ -142,6 +142,20 @@
                     <label>Cut-off Time Same Day Delivery</label>
                     <comment>Time after which the shipping estimation will adjusted by an additional working day.</comment>
                 </field>
+
+                <field id="weekend_days" translate="label" type="multiselect" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Weekend days</label>
+                    <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
+                    <comment>Can modify which days are considered as weekend (affects title and description).</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="holidays" translate="label" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Holidays</label>
+                    <frontend_model>Cream\RedJePakketje\Block\Adminhtml\System\Config\Form\Field\Holidays</frontend_model>
+                    <backend_model>Cream\RedJePakketje\Model\Config\Source\Holidays</backend_model>
+                    <comment>Can modify which days are considered as a holiday (affects title and description, year is ignored).</comment>
+                </field>
             </group>
         </section>
     </system>
