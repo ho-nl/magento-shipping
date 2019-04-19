@@ -156,6 +156,13 @@
                     <backend_model>Cream\RedJePakketje\Model\Config\Source\Holidays</backend_model>
                     <comment>Can modify which days are considered as a holiday (affects title and description, year is ignored).</comment>
                 </field>
+
+                <field id="pickup_days" translate="label" type="multiselect" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pickup days</label>
+                    <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
+                    <comment>This shipping method is hidden on non-pickup days.</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
             </group>
         </section>
     </system>
