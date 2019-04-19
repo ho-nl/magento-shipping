@@ -163,6 +163,11 @@
                     <comment>This shipping method is hidden on non-pickup days.</comment>
                     <can_be_empty>1</can_be_empty>
                 </field>
+
+                <field id="excluded_postcodes" translate="label" type="textarea" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Excluded postcodes</label>
+                    <comment>Comma separated postcodes, eg: 1122AA,2233BB,3344CC</comment>
+                </field>
             </group>
         </section>
     </system>
