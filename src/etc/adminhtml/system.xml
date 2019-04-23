@@ -13,13 +13,13 @@
             <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
 
-                <field id="module_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="module_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable Module</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>When this is disabled, the module's functionality can not be used.</comment>
                 </field>
 
-                <field id="sandbox_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="sandbox_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable Sandbox</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>When this is disabled, the live environment will be used.</comment>
@@ -73,15 +73,11 @@
             </group>
         </section>
 
-        <section id="redjepakketje_shipping_methods"  translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Shipping Methods</label>
-            <tab>redjepakketje</tab>
-            <resource>Cream_RedJePakketje::shipping_methods</resource>
+        <section id="carriers">
+            <group id="redjepakketje_standard" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Red je Pakketje</label>
 
-            <group id="standard" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Standard Shipping Method</label>
-
-                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Active</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
@@ -91,7 +87,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
-                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Displayed Error Message</label>
                     <comment>This is shown if the method is not applicable</comment>
                 </field>
@@ -114,18 +110,22 @@
 
                 <field id="description_before_cutoff" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description (before cut-off)</label>
+                    <comment>Can use %cutoff in the description to show the label for the configured cut-off time. (also works for other fields)</comment>
                 </field>
 
                 <field id="description_after_cutoff" translate="label" type="textarea" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description (after cut-off)</label>
+                    <comment>Can use %cutoff in the description to show the label for the configured cut-off time.  (also works for other fields)</comment>
                 </field>
 
                 <field id="description_weekend" translate="label" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description (during weekend)</label>
+                    <comment>Can use %weekend_days in the description to show the days of the week which are considered as weekend days. (also works for other fields)</comment>
                 </field>
 
                 <field id="description_holiday" translate="label" type="textarea" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description (during holiday)</label>
+                    <comment>Can use %holiday in the description to show the label for the current holiday.</comment>
                 </field>
 
                 <field id="price_before_cutoff" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -162,6 +162,11 @@
                     <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
                     <comment>This shipping method is hidden on non-pickup days.</comment>
                     <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="excluded_postcodes" translate="label" type="textarea" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Excluded postcodes</label>
+                    <comment>Comma separated postcodes, eg: 1122AA,2233BB,3344CC</comment>
                 </field>
             </group>
         </section>
