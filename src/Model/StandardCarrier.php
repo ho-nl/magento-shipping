@@ -4,6 +4,7 @@ namespace Cream\RedJePakketje\Model;
 
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
+use Magento\Quote\Model\Quote\Item as QuoteItemModel;
 
 class StandardCarrier extends AbstractCarrier
 {
@@ -18,16 +19,25 @@ class StandardCarrier extends AbstractCarrier
     protected $_code = 'redjepakketje_standard';
 
     /**
+     * @var array
+     */
+    protected $quoteItems;
+
+    /**
      * Determines whether or not a shipping method can be shown for the request.
      *
      * @param string $carrier
      * @param RateRequest $request
      * @return boolean
      */
-    private function canShowMethod($carrier, RateRequest $request)
+    protected function canShowMethod($carrier, RateRequest $request)
     {
         if ($this->getConfigData('active') &&
-            !$this->redJePakketjeHelper->getIsPostcodeExcluded($carrier, $request->getDestPostcode())
+            !$this->redJePakketjeHelper->getIsPostcodeExcluded($carrier, $request->getDestPostcode()) &&
+            (
+                !$this->redJePakketjeHelper->getIsHiddenForBackorders($carrier) ||
+                $this->isInStock()
+            )
         ) {
             return true;
         }
@@ -43,6 +53,8 @@ class StandardCarrier extends AbstractCarrier
      */
     public function collectRates(RateRequest $request)
     {
+        $this->quoteItems = $request->getAllItems();
+
         $carrier = $this->_code;
         $shippingMethod = self::SHIPPING_METHOD;
 
@@ -137,6 +149,34 @@ class StandardCarrier extends AbstractCarrier
         }
 
         return $shippingPrice ?: 0;
+    }
+
+    /**
+     * Check if all products in the quote are in stock
+     *
+     * @return bool
+     */
+    protected function isInStock()
+    {
+        /**
+         * @var QuoteItemModel $quoteItem
+         */
+        foreach ($this->quoteItems as $quoteItem) {
+            $product = $quoteItem->getProduct();
+            $productStockItem = $product->getExtensionAttributes()->getStockItem();
+
+            if (!$productStockItem) {
+                continue;
+            }
+
+            $quantityInStock = $productStockItem->getQty() - $quoteItem->getQty();
+
+            if ($quantityInStock < 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     protected function _doShipmentRequest(\Magento\Framework\DataObject $request)

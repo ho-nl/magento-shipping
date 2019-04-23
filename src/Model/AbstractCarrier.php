@@ -38,6 +38,11 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
     protected $redJePakketjeHelper;
 
     /**
+     * @var array
+     */
+    protected $quoteItems;
+
+    /**
      * AbstractCarrier constructor.
      * @param ScopeConfigInterface $scopeConfig
      * @param RateErrorFactory $rateErrorFactory
@@ -206,6 +211,11 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
      * @return DataObject
      */
     protected function _doShipmentRequest(DataObject $request)
+    {
+        // Implemented in the specific carriers
+    }
+
+    protected function isInStock()
     {
         // Implemented in the specific carriers
     }

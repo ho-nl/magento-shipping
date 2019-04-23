@@ -139,6 +139,17 @@ class Base extends AbstractHelper
     }
 
     /**
+     * Check if the shipping method should be hidden for backorders
+     *
+     * @param string $carrier
+     * @return bool
+     */
+    public function getIsHiddenForBackorders($carrier)
+    {
+        return $this->getConfiguration(sprintf("carriers/%s/hide_for_backorders", $carrier));
+    }
+
+    /**
      * Replace variables with a configured value
      *
      * @param string $carrier

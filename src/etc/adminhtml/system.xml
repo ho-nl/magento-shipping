@@ -168,6 +168,11 @@
                     <label>Excluded postcodes</label>
                     <comment>Comma separated postcodes, eg: 1122AA,2233BB,3344CC</comment>
                 </field>
+
+                <field id="hide_for_backorders" translate="label" type="select" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide method for backorders</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
         </section>
     </system>
