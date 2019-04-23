@@ -20,11 +20,15 @@ class StandardCarrier extends AbstractCarrier
     /**
      * Determines whether or not a shipping method can be shown for the request.
      *
+     * @param string $carrier
+     * @param RateRequest $request
      * @return boolean
      */
-    private function canShowMethod()
+    private function canShowMethod($carrier, RateRequest $request)
     {
-        if ($this->getConfigData('active')) {
+        if ($this->getConfigData('active') &&
+            !$this->redJePakketjeHelper->getIsPostcodeExcluded($carrier, $request->getDestPostcode())
+        ) {
             return true;
         }
 
@@ -42,7 +46,7 @@ class StandardCarrier extends AbstractCarrier
         $carrier = $this->_code;
         $shippingMethod = self::SHIPPING_METHOD;
 
-        if (!$this->canShowMethod()) {
+        if (!$this->canShowMethod($carrier, $request)) {
             return false;
         }
 

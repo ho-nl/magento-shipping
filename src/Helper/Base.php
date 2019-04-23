@@ -117,6 +117,28 @@ class Base extends AbstractHelper
     }
 
     /**
+     * Check if the given postcode is excluded
+     *
+     * @param string $carrier
+     * @param string $postcode
+     * @return bool
+     */
+    public function getIsPostcodeExcluded($carrier, $postcode)
+    {
+        if ($excludedPostcodes = $this->getConfiguration(sprintf("carriers/%s/excluded_postcodes", $carrier))) {
+            $excludedPostcodes = explode(',', $excludedPostcodes);
+
+            if (count($excludedPostcodes) <= 0 || !in_array($postcode, $excludedPostcodes)) {
+                return false;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Replace variables with a configured value
      *
      * @param string $carrier
