@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <redjepakketje_standard>
+                <model>Cream\RedJePakketje\Model\StandardCarrier</model>
+                <title_before_cutoff>RJP</title_before_cutoff>
+                <title_after_cutoff>RJP</title_after_cutoff>
+                <title_weekend>RJP</title_weekend>
+                <title_holiday>RJP</title_holiday>
+                <description_before_cutoff>Delivered the same day when ordered before %cutoff.</description_before_cutoff>
+                <description_after_cutoff>Delivered the next day when ordered after %cutoff.</description_after_cutoff>
+                <description_weekend>Can not deliver during the weekend, will be delivered on the next available weekday</description_weekend>
+                <description_holiday>Can not deliver during a holiday, will be delivered on the next available weekday</description_holiday>
+                <weekend_days>0,6</weekend_days>
+                <pickup_days>1,2,3,4,5</pickup_days>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </redjepakketje_standard>
+        </carriers>
+    </default>
+</config>
