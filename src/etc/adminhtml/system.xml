@@ -70,11 +70,17 @@
                     <source_model>Cream\RedJePakketje\Model\Config\Source\LabelSize</source_model>
                     <comment>The size of the label (e.g: A6 or A7) when generated.</comment>
                 </field>
+
+                <field id="auto_generate" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Generate Label</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Will automatically confirm the shipment with Red je Pakketje and generate a label when a shipment is created</comment>
+                </field>
             </group>
         </section>
 
         <section id="carriers">
-            <group id="redjepakketje_standard" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="redjepakketjeStandard" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Red je Pakketje</label>
 
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -144,7 +150,7 @@
                 </field>
 
                 <field id="weekend_days" translate="label" type="multiselect" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Weekend days</label>
+                    <label>Weekend Days</label>
                     <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
                     <comment>Can modify which days are considered as weekend (affects title and description).</comment>
                     <can_be_empty>1</can_be_empty>
@@ -158,14 +164,14 @@
                 </field>
 
                 <field id="pickup_days" translate="label" type="multiselect" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Pickup days</label>
+                    <label>Pickup Days</label>
                     <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
                     <comment>This shipping method is hidden on non-pickup days.</comment>
                     <can_be_empty>1</can_be_empty>
                 </field>
 
                 <field id="excluded_postcodes" translate="label" type="textarea" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Excluded postcodes</label>
+                    <label>Excluded Postcodes</label>
                     <comment>Comma separated postcodes, eg: 1122AA,2233BB,3344CC</comment>
                 </field>
 

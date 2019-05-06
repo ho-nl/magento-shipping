@@ -5,6 +5,10 @@ namespace Cream\RedJePakketje\Model;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
 use Magento\Quote\Model\Quote\Item as QuoteItemModel;
+use Magento\Shipping\Model\Shipment\Request;
+use Magento\Framework\DataObjectFactory;
+use Magento\Framework\DataObject;
+use Cream\RedJePakketje\Helper\ApiHelper;
 
 class StandardCarrier extends AbstractCarrier
 {
@@ -16,7 +20,7 @@ class StandardCarrier extends AbstractCarrier
     /**
      * @var string
      */
-    protected $_code = 'redjepakketje_standard';
+    protected $_code = 'redjepakketjeStandard';
 
     /**
      * @var array
@@ -179,8 +183,54 @@ class StandardCarrier extends AbstractCarrier
         return true;
     }
 
-    protected function _doShipmentRequest(\Magento\Framework\DataObject $request)
+    /**
+     * Do request to shipment
+     *
+     * @param Request $request
+     * @return DataObject
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function requestToShipment($request)
     {
-        // TODO: Implement _doShipmentRequest() method.
+        $result = $this->_doShipmentRequest($request);
+
+        $data = [];
+
+        if ($result->hasErrors()) {
+            $this->rollBack($data);
+        } else {
+            $data[] = [
+                'tracking_number' => $result->getTrackingcode(),
+                'label_content' => base64_decode($result->getLabel()),
+            ];
+        }
+
+        $response = $this->dataObjectFactory->create();
+        $response->setInfo($data);
+
+        if ($result->getErrors()) {
+            $response->setErrors($result->getErrors());
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param DataObject $request
+     * @return DataObject
+     * @throws \Exception
+     */
+    protected function _doShipmentRequest(DataObject $request)
+    {
+        $shipment = $request->getOrderShipment();
+
+        if (!$shipment || !$shipment->getId()) {
+            throw new \Exception(__('No shipment found for request'));
+        }
+
+        return $this->apiRequestService->doRequest(
+            ApiHelper::CREATE_SHIPMENT_WITH_LABEL,
+            $shipment
+        );
     }
 }

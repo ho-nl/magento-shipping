@@ -2,8 +2,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <carriers>
-            <redjepakketje_standard>
+            <redjepakketjeStandard>
                 <model>Cream\RedJePakketje\Model\StandardCarrier</model>
+                <title>Red Je Pakketje</title>
                 <title_before_cutoff>RJP</title_before_cutoff>
                 <title_after_cutoff>RJP</title_after_cutoff>
                 <title_weekend>RJP</title_weekend>
@@ -15,7 +16,7 @@
                 <weekend_days>0,6</weekend_days>
                 <pickup_days>1,2,3,4,5</pickup_days>
                 <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
-            </redjepakketje_standard>
+            </redjepakketjeStandard>
         </carriers>
     </default>
 </config>
