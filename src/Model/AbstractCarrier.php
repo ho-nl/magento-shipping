@@ -2,7 +2,6 @@
 
 namespace Cream\RedJePakketje\Model;
 
-
 use Magento\Shipping\Model\Carrier\AbstractCarrierOnline;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -20,12 +19,14 @@ use Magento\Directory\Model\CountryFactory;
 use Magento\Directory\Model\CurrencyFactory;
 use Magento\Directory\Helper\Data as DirectoryHelper;
 use Magento\CatalogInventory\Api\StockRegistryInterface;
-use Cream\RedJePakketje\Helper\Base as RedJePakketjeHelper;
+use Magento\Framework\DataObjectFactory;
+use Cream\RedJePakketje\Helper\BaseHelper as RedJePakketjeHelper;
+use Cream\RedJePakketje\Service\ApiRequestService;
 use Magento\Quote\Model\Quote\Address\RateResult\Method;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Framework\DataObject;
 
-class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
+abstract class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
 {
     /**
      * Constants for use in multiple functions
@@ -33,9 +34,19 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
     const SHIPPING_METHOD = '';
 
     /**
+     * @var DataObjectFactory
+     */
+    protected $dataObjectFactory;
+
+    /**
      * @var RedJePakketjeHelper
      */
     protected $redJePakketjeHelper;
+
+    /**
+     * @var ApiRequestService
+     */
+    protected $apiRequestService;
 
     /**
      * @var array
@@ -59,7 +70,9 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
      * @param CurrencyFactory $currencyFactory
      * @param DirectoryHelper $directoryData
      * @param StockRegistryInterface $stockRegistry
+     * @param DataObjectFactory $dataObjectFactory
      * @param RedJePakketjeHelper $redJePakketjeHelper
+     * @param ApiRequestService $apiRequestService
      * @param array $data
      */
     public function __construct(
@@ -78,7 +91,9 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
         CurrencyFactory $currencyFactory,
         DirectoryHelper $directoryData,
         StockRegistryInterface $stockRegistry,
+        DataObjectFactory $dataObjectFactory,
         RedJePakketjeHelper $redJePakketjeHelper,
+        ApiRequestService $apiRequestService,
         array $data = []
     ) {
         parent::__construct(
@@ -100,7 +115,9 @@ class AbstractCarrier extends AbstractCarrierOnline implements CarrierInterface
             $data
         );
 
+        $this->dataObjectFactory = $dataObjectFactory;
         $this->redJePakketjeHelper = $redJePakketjeHelper;
+        $this->apiRequestService = $apiRequestService;
     }
 
 

@@ -6,10 +6,11 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
+use Magento\Backend\Model\UrlInterface as BackendUrl;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Cream\RedJePakketje\Model\Config\Source\Weekdays;
 
-class Base extends AbstractHelper
+class BaseHelper extends AbstractHelper
 {
     const TYPE_DEBUG = 0;
     const TYPE_ERROR = 1;
@@ -25,19 +26,27 @@ class Base extends AbstractHelper
     private $serializer;
 
     /**
+     * @var BackendUrl
+     */
+    private $backendUrl;
+
+    /**
      * @param Context $context
      * @param TimezoneInterface $timezone
      * @param JsonSerializer $serializer
+     * @param BackendUrl $backendUrl
      */
     public function __construct(
         Context $context,
         TimezoneInterface $timezone,
-        JsonSerializer $serializer
+        JsonSerializer $serializer,
+        BackendUrl $backendUrl
     ) {
         parent::__construct($context);
 
         $this->timezone = $timezone;
         $this->serializer = $serializer;
+        $this->backendUrl = $backendUrl;
     }
 
     /**
@@ -62,6 +71,16 @@ class Base extends AbstractHelper
     public function getTimezoneDate($format = null)
     {
         return $this->timezone->date()->format($format);
+    }
+
+    /**
+     * Check if the auto generation of labels is enabled
+     *
+     * @return bool
+     */
+    public function getIsAutoGenerateEnabled()
+    {
+        return $this->getConfiguration("redjepakketje_label_configuration/general/auto_generate");
     }
 
     /**
@@ -150,6 +169,30 @@ class Base extends AbstractHelper
     }
 
     /**
+     * Get the configured product type for the given shipping method
+     *
+     * @param string $carrier
+     * @return string
+     */
+    public function getProductType($carrier)
+    {
+        // @TODO: Make this configurable
+        return 'sameday_parcel_standard';
+    }
+
+    /**
+     * Get the configured product options for the given shipping method
+     *
+     * @param string $carrier
+     * @return array
+     */
+    public function getProductOptions($carrier)
+    {
+        // @TODO: Make this configurable
+        return [];
+    }
+
+    /**
      * Replace variables with a configured value
      *
      * @param string $carrier
@@ -195,6 +238,18 @@ class Base extends AbstractHelper
         }
 
         return $string;
+    }
+
+    /**
+     * Get a backend url for the given path with the given params
+     *
+     * @param string $path
+     * @param array $params
+     * @return string
+     */
+    public function getBackendUrl($path, $params)
+    {
+        return $this->backendUrl->getUrl($path, $params);
     }
 
     /**

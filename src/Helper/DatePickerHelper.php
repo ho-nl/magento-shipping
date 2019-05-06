@@ -4,7 +4,7 @@ namespace Cream\RedJePakketje\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 
-class DatePicker extends AbstractHelper
+class DatePickerHelper extends AbstractHelper
 {
     const DEFAULT_FORMAT = 'd-m-Y';
     const FRONTEND_FORMAT = 'l, j M';

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Cream_RedJePakketje::css/shipping/view.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="sales_shipment_view">
+                <referenceBlock name="form">
+                    <action method="setTemplate">
+                        <argument name="template" xsi:type="string">Cream_RedJePakketje::shipping/view/form.phtml</argument>
+                    </action>
+
+                    <referenceBlock name="shipment_tracking">
+                        <action method="setTemplate">
+                            <argument name="template" xsi:type="string">Cream_RedJePakketje::shipping/order/tracking/view.phtml</argument>
+                        </action>
+                    </referenceBlock>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>
