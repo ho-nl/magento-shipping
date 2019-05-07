@@ -4,6 +4,8 @@ namespace Cream\RedJePakketje\Observer\Shipment;
 
 use Magento\Framework\Event\ObserverInterface;
 use Cream\RedJePakketje\Helper\LabelHelper;
+use Cream\RedJePakketje\Helper\TrackingHelper;
+use Cream\RedJePakketje\Service\TrackingMailService;
 use Cream\RedJePakketje\Model\Repository\LabelRepository;
 use Magento\Framework\Event\Observer;
 use Magento\Sales\Model\Order\Shipment\Track as TrackModel;
@@ -16,19 +18,35 @@ class TrackSaveAfterObserver implements ObserverInterface
     private $labelHelper;
 
     /**
+     * @var TrackingHelper
+     */
+    private $trackingHelper;
+
+    /**
+     * @var TrackingMailService
+     */
+    private $trackingMailService;
+
+    /**
      * @var LabelRepository
      */
     private $labelRepository;
 
     /**
      * @param LabelHelper $labelHelper
+     * @param TrackingHelper $trackingHelper
+     * @param TrackingMailService $trackingMailService
      * @param LabelRepository $labelRepository
      */
     public function __construct(
         LabelHelper $labelHelper,
+        TrackingHelper $trackingHelper,
+        TrackingMailService $trackingMailService,
         LabelRepository $labelRepository
     ) {
         $this->labelHelper = $labelHelper;
+        $this->trackingHelper = $trackingHelper;
+        $this->trackingMailService = $trackingMailService;
         $this->labelRepository = $labelRepository;
     }
 
@@ -45,7 +63,7 @@ class TrackSaveAfterObserver implements ObserverInterface
 
         // Check if the shipment is new, if so attempt to auto generate a label
         if (!$trackAndTrace) {
-            $this->labelHelper->log(
+            $this->trackingHelper->log(
                 'error',
                 'No track and trace was found',
                 __FILE__,
@@ -67,6 +85,17 @@ class TrackSaveAfterObserver implements ObserverInterface
                         $label->setContent($shipment->getShippingLabel());
                         $label->setContentType($this->labelHelper->getLabelType());
                         $this->labelRepository->save($label);
+
+                        if ($this->trackingHelper->getIsAutoSendEnabled()) {
+                            if (!$this->trackingMailService->sendTrackingEmail($trackAndTrace)) {
+                                $this->trackingHelper->log(
+                                    'error',
+                                    'Could not send a tracking mail',
+                                    __FILE__,
+                                    __LINE__
+                                );
+                            }
+                        }
                     } catch (\Exception $exception) {
                         $this->labelHelper->log(
                             'error',
