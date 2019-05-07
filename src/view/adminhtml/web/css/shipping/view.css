@@ -1,13 +1,25 @@
-.col-download {
-    width: 200px;
+.action-email-icon {
+    margin-top: 5px;
+}
+
+.admin__control-table td.col-actions {
+    text-align: center;
+}
+
+.action-icon {
+    color: #514943;
 }
 
 .col-download .action-download {
-    font-family: 'Admin Icons';
     text-decoration: none;
 }
 
 .col-download .action-download:before {
+    font-family: 'Admin Icons';
     content: '\e636';
     font-size: 2.5rem;
+}
+
+.action-delete:hover {
+    color: #007bdb;
 }

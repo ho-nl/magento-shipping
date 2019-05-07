@@ -4,6 +4,10 @@
         <plugin name="cream_redjepakketje_shipment_resource_plugin" type="Cream\RedJePakketje\Plugin\Order\ShipmentResourcePlugin"/>
     </type>
 
+    <type name="Magento\Shipping\Block\Adminhtml\View">
+        <plugin name="cream_redjepakketje_shipping_view_block_plugin" type="Cream\RedJePakketje\Plugin\Shipping\ViewBlockPlugin"/>
+    </type>
+
     <type name="Magento\Shipping\Model\Shipping\LabelGenerator">
         <plugin name="cream_redjepakketje_shipping_label_generator_plugin" type="Cream\RedJePakketje\Plugin\Shipping\LabelGeneratorPlugin"/>
     </type>

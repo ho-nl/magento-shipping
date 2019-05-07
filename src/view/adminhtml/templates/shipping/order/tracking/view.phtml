@@ -11,6 +11,7 @@
 <?php $order = $block->getShipment()->getOrder();?>
 <?php $isRedJePakketje = (strpos($order->getShippingMethod(), 'redjepakketje') !== false); ?>
 <?php $labelHelper = $this->helper('\Cream\RedJePakketje\Helper\LabelHelper'); ?>
+<?php $trackingHelper = $this->helper('\Cream\RedJePakketje\Helper\TrackingHelper'); ?>
 <div class="admin__control-table-wrapper">
     <table class="data-table admin__control-table" id="shipment_tracking_info">
         <thead>
@@ -19,9 +20,14 @@
                 <th class="col-title"><?= /* @escapeNotVerified */ __('Title') ?></th>
                 <th class="col-number"><?= /* @escapeNotVerified */ __('Number') ?></th>
                 <?php if ($isRedJePakketje) : ?>
-                    <th class="col-download"><?= /* @escapeNotVerified */ __('Download') ?></th>
+                    <th class="col-email">
+                        <?= /* @escapeNotVerified */ __('Track & Trace') ?>
+                    </th>
+                    <th class="col-download">
+                        <?= /* @escapeNotVerified */ __('Label') ?>
+                    </th>
                 <?php endif ?>
-                <th class="col-delete last"><?= /* @escapeNotVerified */ __('Action') ?></th>
+                <th class="col-delete last"><?= /* @escapeNotVerified */ __('Delete') ?></th>
             </tr>
         </thead>
         <tfoot>
@@ -49,7 +55,7 @@
                            name="number"
                            value="" />
                 </td>
-                <td class="col-delete last" <?php if ($isRedJePakketje) : ?>colspan="2" <?php endif; ?>>
+                <td class="col-delete last" <?php if ($isRedJePakketje) : ?>colspan="3" <?php endif; ?>>
                     <?= $block->getSaveButtonHtml() ?>
                 </td>
             </tr>
@@ -65,9 +71,9 @@
                     <?= $block->escapeHtml($_track->getNumber()) ?>
                     <?php else: ?>
                         <?php if ($isRedJePakketje) : ?>
-                            <?php $trackingUrl = $labelHelper->getTrackingUrl($_track) ?>
+                            <?php $trackingUrl = $trackingHelper->getTrackingUrl($_track) ?>
                             <?php if ($trackingUrl) : ?>
-                                <a href="<?= /* @escapeNotVerified */ $trackingUrl ?>"><?= /* @escapeNotVerified */ __('Track Package (%1)', $block->escapeHtml($_track->getNumber())) ?></a>
+                                <a href="<?= /* @escapeNotVerified */ $trackingUrl ?>"><?= /* @escapeNotVerified */ $block->escapeHtml($_track->getNumber()) ?></a>
                             <?php else: ?>
                                 <?= /* @escapeNotVerified */ $block->escapeHtml($_track->getNumber()) ?>
                             <?php endif ?>
@@ -78,13 +84,31 @@
                     <?php endif; ?>
                 </td>
                 <?php if ($isRedJePakketje) : ?>
-                    <td class="col-download">
-                        <a href="<?= /* @escapeNotVerified */ $labelHelper->getDownloadUrl($_track) ?>" class="action-download" target="_blank">
-                            <span><?= /* @escapeNotVerified */ __('Label (%1)', $_track->getNumber()) ?></span>
+                    <td class="col-email col-actions">
+                        <a href="<?= /* @escapeNotVerified */ $trackingHelper->getSendTrackMailUrl($_track) ?>"
+                           title="<?= /* @escapeNotVerified */ __("Send Tracking Information to Customer") ?>"
+                           class="action-email action-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" class="action-email-icon">
+                                <path fill="currentColor"
+                                      d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </td>
+
+                    <td class="col-download col-actions">
+                        <a href="<?= /* @escapeNotVerified */ $labelHelper->getDownloadUrl($_track) ?>"
+                           title="<?= /* @escapeNotVerified */ __("Download Shipping Label") ?>"
+                           class="action-download action-icon" target="_blank">
                         </a>
                     </td>
                 <?php endif ?>
-                <td class="col-delete last"><button class="action-delete" type="button" onclick="deleteTrackingNumber('<?= /* @escapeNotVerified */ $block->getRemoveUrl($_track) ?>'); return false;"><span><?= /* @escapeNotVerified */ __('Delete') ?></span></button></td>
+                <td class="col-delete col-actions last">
+                    <button class="action-delete action-icon" type="button" title="<?= /* @escapeNotVerified */ __('Delete Track & Trace Number And Shipping Label') ?>"
+                            onclick="deleteTrackingNumber('<?= /* @escapeNotVerified */ $block->getRemoveUrl($_track) ?>'); return false;">
+                        <span><?= /* @escapeNotVerified */ __('Delete') ?></span>
+                    </button>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>

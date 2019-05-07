@@ -18,5 +18,12 @@
                 <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
             </redjepakketjeStandard>
         </carriers>
+
+        <redjepakketje_tracking_configuration>
+            <email>
+                <identity>general</identity>
+                <tracking_template>redjepakketje_tracking_configuration_email_tracking_template</tracking_template>
+            </email>
+        </redjepakketje_tracking_configuration>
     </default>
 </config>

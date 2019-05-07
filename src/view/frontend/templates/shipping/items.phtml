@@ -10,7 +10,7 @@
 <?php /** @var  $block \Magento\Shipping\Block\Items */ ?>
 <?php  $_order = $block->getOrder() ?>
 <?php $isRedJePakketje = (strpos($_order->getShippingMethod(), 'redjepakketje') !== false); ?>
-<?php $labelHelper = $this->helper('\Cream\RedJePakketje\Helper\LabelHelper'); ?>
+<?php $trackingHelper = $this->helper('\Cream\RedJePakketje\Helper\TrackingHelper'); ?>
 
 <div class="actions-toolbar">
     <?php if ($_order->getTracksCollection()->count() && !$isRedJePakketje) : ?>
@@ -53,7 +53,7 @@
             $_size = $tracks->count();
             foreach ($tracks as $track): ?>
                 <?php if ($isRedJePakketje): ?>
-                    <?php $trackingUrl = $labelHelper->getTrackingUrl($track) ?>
+                    <?php $trackingUrl = $trackingHelper->getTrackingUrl($track) ?>
                     <?php if ($trackingUrl): ?>
                         <a href="<?= /* @escapeNotVerified */ $trackingUrl ?>"><?= /* @escapeNotVerified */ __('Track Package (%1)', $block->escapeHtml($track->getNumber())) ?></a>
                     <?php else: ?>

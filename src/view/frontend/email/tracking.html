@@ -1,0 +1,22 @@
+<!--@subject {{trans "Track and Trace Information"}} @-->
+<!--@vars {
+
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table class="message-info">
+    <tr>
+        <td>
+            <h3>{{trans "Track and Trace Information"}}</h3>
+            {{trans "Your order has been shipped. Your tracking number is: %tracking_number" tracking_number=$tracking_number}}<br />
+        </td>
+    </tr>
+</table>
+<br />
+<a href="{{var tracking_url}}">{{trans "Click here to track your shipment."}}</a>
+<br />
+<br />
+{{var delivery_location|raw}}
+
+{{template config_path="design/email/footer_template"}}

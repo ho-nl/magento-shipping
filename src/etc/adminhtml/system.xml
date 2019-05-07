@@ -79,6 +79,33 @@
             </group>
         </section>
 
+        <section id="redjepakketje_tracking_configuration"  translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Tracking Configuration</label>
+            <tab>redjepakketje</tab>
+            <resource>Cream_RedJePakketje::tracking_config</resource>
+
+            <group id="email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="identity" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+
+                <field id="tracking_template" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Template</label>
+                    <comment>Email template used for sending tracking information.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+
+                <field id="auto_send" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Send Tracking Mail</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Will automatically send the tracking mail when a shipment is created</comment>
+                </field>
+            </group>
+        </section>
+
         <section id="carriers">
             <group id="redjepakketjeStandard" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Red je Pakketje</label>
