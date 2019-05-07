@@ -224,7 +224,7 @@ class StandardCarrier extends AbstractCarrier
     {
         $shipment = $request->getOrderShipment();
 
-        if (!$shipment || !$shipment->getId()) {
+        if (!$shipment) {
             throw new \Exception(__('No shipment found for request'));
         }
 
