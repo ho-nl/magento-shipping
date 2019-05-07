@@ -4,7 +4,7 @@ namespace Cream\RedJePakketje\Block\Adminhtml\System\Config\Form\Field;
 
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Backend\Block\Template\Context;
-use Cream\RedJePakketje\Helper\DatePicker as DatePickerHelper;
+use Cream\RedJePakketje\Helper\DatePickerHelper;
 use Magento\Framework\DataObject;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Backend\Block\Template;
