@@ -37,6 +37,7 @@ class StandardCarrier extends AbstractCarrier
     protected function canShowMethod($carrier, RateRequest $request)
     {
         if ($this->getConfigData('active') &&
+            $this->redJePakketjeHelper->getIsPickupDay($carrier) &&
             !$this->redJePakketjeHelper->getIsPostcodeExcluded($carrier, $request->getDestPostcode()) &&
             (
                 !$this->redJePakketjeHelper->getIsHiddenForBackorders($carrier) ||

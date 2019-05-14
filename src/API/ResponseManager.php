@@ -34,7 +34,7 @@ class ResponseManager
                 "An error with the code %1 has occurred during the request. \nMessage: %2. \nDetails: %3.",
                 $data['error_code'],
                 $data['error_message'],
-                is_array($data['error_details']) ? implode("\n", $data['error_details']) : $data['error_details']
+                is_array($data['error_details']) ? json_encode($data['error_details']) : $data['error_details']
             );
         } else {
             $responseData = isset($data['data']) ? $data['data'] : [$data];
