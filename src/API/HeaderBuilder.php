@@ -23,7 +23,6 @@ class HeaderBuilder extends AbstractBuilder
         $headers = [
             Zend_Http_Client::CONTENT_TYPE => "application/json",
             "Accept" => "application/json"
-//            "Authorization" => sprintf("Basic %s", $apiKey)
         ];
 
         return $headers;

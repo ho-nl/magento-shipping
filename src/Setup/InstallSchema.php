@@ -56,7 +56,7 @@ class InstallSchema implements InstallSchemaInterface
                 'Track Number'
             )->addColumn(
                 'content',
-                Table::TYPE_TEXT,
+                Table::TYPE_BLOB,
                 null,
                 ['nullable' => false],
                 'Content'

@@ -73,7 +73,7 @@
                         <?php if ($isRedJePakketje) : ?>
                             <?php $trackingUrl = $trackingHelper->getTrackingUrl($_track) ?>
                             <?php if ($trackingUrl) : ?>
-                                <a href="<?= /* @escapeNotVerified */ $trackingUrl ?>"><?= /* @escapeNotVerified */ $block->escapeHtml($_track->getNumber()) ?></a>
+                                <a href="<?= /* @escapeNotVerified */ $trackingUrl ?>" target="_blank"><?= /* @escapeNotVerified */ $block->escapeHtml($_track->getNumber()) ?></a>
                             <?php else: ?>
                                 <?= /* @escapeNotVerified */ $block->escapeHtml($_track->getNumber()) ?>
                             <?php endif ?>

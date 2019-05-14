@@ -95,7 +95,7 @@ class BaseHelper extends AbstractHelper
         $cutoff = $this->getConfiguration(sprintf("carriers/%s/cutoff_time", $carrier));
         $cutoff = str_replace(',', '', $cutoff);
 
-        return $cutoff < $now;
+        return $cutoff > $now;
     }
 
     /**
@@ -133,6 +133,21 @@ class BaseHelper extends AbstractHelper
         }
 
         return false;
+    }
+
+    /**
+     * Check if today is a configured pickup day
+     *
+     * @param string $carrier
+     * @return bool
+     */
+    public function getIsPickupDay($carrier)
+    {
+        $dayOfTheWeek = $this->getTimezoneDate('w');
+        $pickupDays = $this->getConfiguration(sprintf("carriers/%s/pickup_days", $carrier));
+        $pickupDays = explode(',', $pickupDays);
+
+        return in_array($dayOfTheWeek, $pickupDays);
     }
 
     /**

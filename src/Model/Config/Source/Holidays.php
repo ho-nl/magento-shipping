@@ -47,11 +47,11 @@ class Holidays extends Value
         Registry $registry,
         ScopeConfigInterface $config,
         TypeListInterface $cacheTypeList,
+        Random $mathRandom,
+        DatePickerHelper $datePickerHelper,
         AbstractResource $resource = null,
         AbstractDb $resourceCollection = null,
-        Random $mathRandom,
         Json $serializer = null,
-        DatePickerHelper $datePickerHelper,
         array $data = []
     ) {
         parent::__construct(

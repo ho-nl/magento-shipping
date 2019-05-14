@@ -232,6 +232,21 @@ abstract class AbstractCarrier extends AbstractCarrierOnline implements CarrierI
         // Implemented in the specific carriers
     }
 
+    /**
+     * Process additional validation for the current carrier
+     *
+     * @param DataObject $request
+     * @return bool
+     */
+    public function processAdditionalValidation(DataObject $request)
+    {
+        // Overridden to avoid weight checks, not of importance for this shipping method
+        return true;
+    }
+
+    /**
+     * Check if the products are in stock
+     */
     protected function isInStock()
     {
         // Implemented in the specific carriers

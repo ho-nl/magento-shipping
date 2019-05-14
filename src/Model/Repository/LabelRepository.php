@@ -91,7 +91,7 @@ class LabelRepository
         } catch (\Exception $exception) {
             $this->baseHelper->log(
                 'error',
-                $exception,
+                $exception->getMessage(),
                 __FILE__,
                 __LINE__
             );
@@ -117,7 +117,7 @@ class LabelRepository
         } catch (\Exception $exception) {
             $this->baseHelper->log(
                 'error',
-                $exception,
+                $exception->getMessage(),
                 __FILE__,
                 __LINE__
             );
