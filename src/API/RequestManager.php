@@ -86,7 +86,7 @@ class RequestManager
      */
     public function setHeaders($headers)
     {
-        if (!$headers || count($headers) <= 0) {
+        if (!$headers || empty($headers)) {
             return false;
         }
 
@@ -103,7 +103,7 @@ class RequestManager
      */
     public function setBody($body)
     {
-        if (!$body || count($body) <= 0) {
+        if (!$body || empty($body)) {
             return false;
         }
 

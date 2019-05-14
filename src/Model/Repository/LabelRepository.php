@@ -136,7 +136,7 @@ class LabelRepository
      */
     public function getAllByFilters($filters)
     {
-        if (count($filters) <= 0) {
+        if (empty($filters)) {
             return false;
         }
 
@@ -146,7 +146,7 @@ class LabelRepository
             $labelCollection->addFieldToFilter($field, $filter);
         }
 
-        if (!$labelCollection || $labelCollection->count() <= 0) {
+        if (!$labelCollection || $labelCollection->getSize() <= 0) {
             return false;
         }
 

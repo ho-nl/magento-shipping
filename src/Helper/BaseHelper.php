@@ -162,7 +162,7 @@ class BaseHelper extends AbstractHelper
         if ($excludedPostcodes = $this->getConfiguration(sprintf("carriers/%s/excluded_postcodes", $carrier))) {
             $excludedPostcodes = explode(',', $excludedPostcodes);
 
-            if (count($excludedPostcodes) <= 0 || !in_array($postcode, $excludedPostcodes)) {
+            if (empty($excludedPostcodes) || !in_array($postcode, $excludedPostcodes)) {
                 return false;
             }
 
