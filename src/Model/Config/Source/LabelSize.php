@@ -10,11 +10,7 @@ class LabelSize implements ArrayInterface
     const A7 = 'a7';
 
     /**
-     * Product options for PostNL labeling/barcode service.
-     *
-     * For more information, refer to:
-     * https://developer.postnl.nl/apis/barcode-webservice/how-use
-     * https://developer.postnl.nl/apis/labelling-webservice/how-use
+     * Get the options for the labe sizes
      *
      * @return array
      */

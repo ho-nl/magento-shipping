@@ -109,7 +109,7 @@ class ApiRequestService
             }
         }
 
-        if (count($errors) <= 0) {
+        if (empty($errors)) {
             switch ($method) {
                 case ApiHelper::CREATE_SHIPMENT:
                 case ApiHelper::CREATE_SHIPMENT_WITH_LABEL:
@@ -151,7 +151,7 @@ class ApiRequestService
             }
         }
 
-        if (count($errors) > 0) {
+        if (!empty($errors)) {
             $result->setHasErrors(true);
             $result->setErrors($errors);
         }
