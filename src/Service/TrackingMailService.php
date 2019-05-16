@@ -70,30 +70,42 @@ class TrackingMailService
 
         $shippingAddress = $shipment->getShippingAddress();
 
-        $transport = $this->transportBuilder->setTemplateIdentifier($this->trackingHelper->getTrackingTemplate())
-            ->setFromByScope(
+        $transport = $this->transportBuilder->setTemplateIdentifier($this->trackingHelper->getTrackingTemplate());
+
+        // Version (2.3.0) e.g: Major [0] = 2, Minor [1] = 3, Patch [2] = 0
+        $magentoVersion = explode('.', $this->trackingHelper->getMagentoVersion());
+
+        if ($magentoVersion[1] < 3) {
+            // Backwards compatibility with Magento version 2.2.*
+            $transport->setFrom($this->trackingHelper->getTrackingEmailSender());
+        } else {
+            // Compatibility with 2.3.*
+            $transport->setFromByScope(
                 $this->trackingHelper->getTrackingEmailSender(),
                 $order->getStoreId()
-            )
-            ->addTo(
-                $order->getCustomerEmail(),
-                $order->getCustomerName()
-            )
-            ->setTemplateVars([
-                'tracking_number'   => $trackAndTrace->getTrackNumber(),
-                'tracking_url'      => $this->trackingHelper->getTrackingUrl($trackAndTrace),
-                'delivery_location' => $this->addressRenderer->format($shippingAddress, 'html'),
-                'shipment'          => $shipment,
-                'order'             => $order
-            ])
-            ->setTemplateOptions([
-                'area'  => Area::AREA_FRONTEND,
-                'store' => $order->getStoreId()
-            ])
-            ->getTransport();
+            );
+        }
+
+        $transport->addTo(
+            $order->getCustomerEmail(),
+            $order->getCustomerName()
+        );
+
+        $transport->setTemplateVars([
+            'tracking_number'   => $trackAndTrace->getTrackNumber(),
+            'tracking_url'      => $this->trackingHelper->getTrackingUrl($trackAndTrace),
+            'delivery_location' => $this->addressRenderer->format($shippingAddress, 'html'),
+            'shipment'          => $shipment,
+            'order'             => $order
+        ]);
+
+        $transport->setTemplateOptions([
+            'area'  => Area::AREA_FRONTEND,
+            'store' => $order->getStoreId()
+        ]);
 
         try {
-            $transport->sendMessage();
+            $transport->getTransport()->sendMessage();
 
             return true;
         } catch (\Exception $exception) {

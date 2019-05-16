@@ -4,6 +4,7 @@ namespace Cream\RedJePakketje\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Magento\Backend\Model\UrlInterface as BackendUrl;
@@ -14,6 +15,11 @@ class BaseHelper extends AbstractHelper
 {
     const TYPE_DEBUG = 0;
     const TYPE_ERROR = 1;
+
+    /**
+     * @var ProductMetadataInterface
+     */
+    private $productMetaData;
 
     /**
      * @var TimezoneInterface
@@ -32,18 +38,21 @@ class BaseHelper extends AbstractHelper
 
     /**
      * @param Context $context
+     * @param ProductMetadataInterface $productMetadata
      * @param TimezoneInterface $timezone
      * @param JsonSerializer $serializer
      * @param BackendUrl $backendUrl
      */
     public function __construct(
         Context $context,
+        ProductMetadataInterface $productMetadata,
         TimezoneInterface $timezone,
         JsonSerializer $serializer,
         BackendUrl $backendUrl
     ) {
         parent::__construct($context);
 
+        $this->productMetaData = $productMetadata;
         $this->timezone = $timezone;
         $this->serializer = $serializer;
         $this->backendUrl = $backendUrl;
@@ -265,6 +274,16 @@ class BaseHelper extends AbstractHelper
     public function getBackendUrl($path, $params)
     {
         return $this->backendUrl->getUrl($path, $params);
+    }
+
+    /**
+     * Get the current Magento version
+     *
+     * @return string
+     */
+    public function getMagentoVersion()
+    {
+        return $this->productMetaData->getVersion();
     }
 
     /**
