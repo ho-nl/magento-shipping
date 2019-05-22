@@ -79,7 +79,7 @@ class LabelGeneratorPlugin
         $response = $this->labelFactory->create()->requestToShipment($shipment);
 
         if ($response->hasErrors()) {
-            throw new LocalizedException(__(implode("<br/>", $response->getErrors())));
+            throw new LocalizedException(__($response->getErrors()));
         }
 
         if (!$response->hasInfo()) {
