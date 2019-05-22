@@ -210,7 +210,7 @@ class StandardCarrier extends AbstractCarrier
         $response->setInfo($data);
 
         if ($result->getErrors()) {
-            $response->setErrors($result->getErrors());
+            $response->setErrors(implode("<br/>", $result->getErrors()));
         }
 
         return $response;
