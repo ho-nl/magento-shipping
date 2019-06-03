@@ -75,11 +75,18 @@ class BaseHelper extends AbstractHelper
      * Get the date in the given format for the current store's timezone
      *
      * @param null $format
+     * @param string $modify
      * @return string
      */
-    public function getTimezoneDate($format = null)
+    public function getTimezoneDate($format = null, $modify = null)
     {
-        return $this->timezone->date()->format($format);
+        $date = $this->timezone->date();
+
+        if ($modify) {
+            $date->modify($modify);
+        }
+
+        return $date->format($format);
     }
 
     /**
@@ -118,6 +125,11 @@ class BaseHelper extends AbstractHelper
         $dayOfTheWeek = $this->getTimezoneDate('w');
         $weekendDays = $this->getConfiguration(sprintf("carriers/%s/weekend_days", $carrier));
         $weekendDays = explode(',', $weekendDays);
+
+        if (!in_array($dayOfTheWeek, $weekendDays) && !$this->getIsBeforeCutoff($carrier)) {
+            // Check if the next day is a weekend day
+            $dayOfTheWeek = $this->getTimezoneDate('w', '+1day');
+        }
 
         return in_array($dayOfTheWeek, $weekendDays);
     }
