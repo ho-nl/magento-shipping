@@ -1,5 +1,11 @@
 Release Notes
 =============
+1.0.4
+-----
+Added logic:
+
+* The carrier now shows the weekend day title/description when the cut-off is reached and the next day is a weekend day.
+
 1.0.3
 -----
 Minor bugfix:
