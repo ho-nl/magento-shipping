@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\API;
+namespace RedJePakketje\Shipping\Api;
 
 use Magento\Framework\HTTP\ZendClientFactory;
 use Magento\Framework\HTTP\ZendClient;

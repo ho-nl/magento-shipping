@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\API;
+namespace RedJePakketje\Shipping\Api;
 use Zend_Http_Response;
 
 class ResponseManager

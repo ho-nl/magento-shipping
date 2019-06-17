@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Service;
+namespace RedJePakketje\Shipping\Service;
 
 use Magento\Shipping\Model\Shipping\LabelGenerator;
 use Magento\Framework\App\Request\HttpFactory as HttpRequestFactory;

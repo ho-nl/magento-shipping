@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Sales\Model\ResourceModel\Order\Shipment">
-        <plugin name="cream_redjepakketje_shipment_resource_plugin" type="Cream\RedJePakketje\Plugin\Order\ShipmentResourcePlugin"/>
+        <plugin name="redjepakketje_shipment_resource_plugin" type="RedJePakketje\Shipping\Plugin\Order\ShipmentResourcePlugin"/>
     </type>
 
     <type name="Magento\Shipping\Block\Adminhtml\View">
-        <plugin name="cream_redjepakketje_shipping_view_block_plugin" type="Cream\RedJePakketje\Plugin\Shipping\ViewBlockPlugin"/>
+        <plugin name="redjepakketje_shipping_view_block_plugin" type="RedJePakketje\Shipping\Plugin\Shipping\ViewBlockPlugin"/>
     </type>
 
     <type name="Magento\Shipping\Model\Shipping\LabelGenerator">
-        <plugin name="cream_redjepakketje_shipping_label_generator_plugin" type="Cream\RedJePakketje\Plugin\Shipping\LabelGeneratorPlugin"/>
+        <plugin name="redjepakketje_shipping_label_generator_plugin" type="RedJePakketje\Shipping\Plugin\Shipping\LabelGeneratorPlugin"/>
     </type>
 </config>

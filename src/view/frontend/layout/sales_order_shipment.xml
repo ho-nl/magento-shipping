@@ -12,7 +12,7 @@
             <referenceBlock name="sales.order.shipment">
                 <referenceBlock name="shipment_items">
                     <action method="setTemplate">
-                        <argument name="template" xsi:type="string">Cream_RedJePakketje::shipping/items.phtml</argument>
+                        <argument name="template" xsi:type="string">RedJePakketje_Shipping::shipping/items.phtml</argument>
                     </action>
                 </referenceBlock>
             </referenceBlock>

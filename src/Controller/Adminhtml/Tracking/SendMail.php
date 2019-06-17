@@ -1,12 +1,12 @@
 <?php
 
-namespace Cream\RedJePakketje\Controller\Adminhtml\Tracking;
+namespace RedJePakketje\Shipping\Controller\Adminhtml\Tracking;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Sales\Api\ShipmentTrackRepositoryInterface;
-use Cream\RedJePakketje\Helper\TrackingHelper;
-use Cream\RedJePakketje\Service\TrackingMailService;
+use RedJePakketje\Shipping\Helper\TrackingHelper;
+use RedJePakketje\Shipping\Service\TrackingMailService;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Sales\Model\Order\Shipment\Track as TrackModel;
 

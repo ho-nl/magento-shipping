@@ -1,10 +1,10 @@
 <?php
 
-namespace Cream\RedJePakketje\Block\Adminhtml\System\Config\Form\Field;
+namespace RedJePakketje\Shipping\Block\Adminhtml\System\Config\Form\Field;
 
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Backend\Block\Template\Context;
-use Cream\RedJePakketje\Helper\DatePickerHelper;
+use RedJePakketje\Shipping\Helper\DatePickerHelper;
 use Magento\Framework\DataObject;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Backend\Block\Template;
@@ -90,7 +90,7 @@ class Holidays extends AbstractFieldArray
 
         $script = $this->getLayout()->createBlock(
             Template::class
-        )->setTemplate('Cream_RedJePakketje::datepicker/script.phtml')->toHtml();
+        )->setTemplate('RedJePakketje_Shipping::datepicker/script.phtml')->toHtml();
 
         $html .= $script;
 

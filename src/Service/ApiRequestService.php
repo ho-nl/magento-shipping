@@ -1,14 +1,14 @@
 <?php
 
-namespace Cream\RedJePakketje\Service;
+namespace RedJePakketje\Shipping\Service;
 
 use Magento\Framework\DataObjectFactory;
-use Cream\RedJePakketje\Helper\ApiHelper;
-use Cream\RedJePakketje\API\UrlBuilder;
-use Cream\RedJePakketje\API\HeaderBuilder;
-use Cream\RedJePakketje\API\BodyBuilder;
-use Cream\RedJePakketje\API\RequestManager;
-use Cream\RedJePakketje\API\ResponseManager;
+use RedJePakketje\Shipping\Helper\ApiHelper;
+use RedJePakketje\Shipping\Api\UrlBuilder;
+use RedJePakketje\Shipping\Api\HeaderBuilder;
+use RedJePakketje\Shipping\Api\BodyBuilder;
+use RedJePakketje\Shipping\Api\RequestManager;
+use RedJePakketje\Shipping\Api\ResponseManager;
 use Magento\Framework\DataObject;
 use Magento\Framework\HTTP\ZendClient;
 

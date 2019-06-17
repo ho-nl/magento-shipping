@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="sales_order_shipment_track_save_after">
-        <observer name="redjepakketje_track_save_after" instance="Cream\RedJePakketje\Observer\Shipment\TrackSaveAfterObserver" shared="false"/>
+        <observer name="redjepakketje_track_save_after" instance="RedJePakketje\Shipping\Observer\Shipment\TrackSaveAfterObserver" shared="false"/>
     </event>
 </config>
 

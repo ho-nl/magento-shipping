@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Model\Config\Source;
+namespace RedJePakketje\Shipping\Model\Config\Source;
 
 use Magento\Framework\Option\ArrayInterface;
 

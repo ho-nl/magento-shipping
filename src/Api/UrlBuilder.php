@@ -1,9 +1,9 @@
 <?php
 
-namespace Cream\RedJePakketje\API;
+namespace RedJePakketje\Shipping\Api;
 
 use Magento\Framework\DataObject;
-use Cream\RedJePakketje\Helper\ApiHelper;
+use RedJePakketje\Shipping\Helper\ApiHelper;
 
 class UrlBuilder extends AbstractBuilder
 {

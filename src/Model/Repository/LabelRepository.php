@@ -1,13 +1,13 @@
 <?php
 
-namespace Cream\RedJePakketje\Model\Repository;
+namespace RedJePakketje\Shipping\Model\Repository;
 
-use Cream\RedJePakketje\Model\LabelFactory;
-use Cream\RedJePakketje\Model\ResourceModel\Label as LabelResource;
-use Cream\RedJePakketje\Model\ResourceModel\Label\CollectionFactory as LabelCollectionFactory;
-use Cream\RedJePakketje\Helper\BaseHelper;
-use Cream\RedJePakketje\Model\Label as LabelModel;
-use Cream\RedJePakketje\Model\ResourceModel\Label\Collection as LabelCollection;
+use RedJePakketje\Shipping\Model\LabelFactory;
+use RedJePakketje\Shipping\Model\ResourceModel\Label as LabelResource;
+use RedJePakketje\Shipping\Model\ResourceModel\Label\CollectionFactory as LabelCollectionFactory;
+use RedJePakketje\Shipping\Helper\BaseHelper;
+use RedJePakketje\Shipping\Model\Label as LabelModel;
+use RedJePakketje\Shipping\Model\ResourceModel\Label\Collection as LabelCollection;
 
 class LabelRepository
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Cream\RedJePakketje\Plugin\Shipping;
+namespace RedJePakketje\Shipping\Plugin\Shipping;
 
-use Cream\RedJePakketje\Helper\TrackingHelper;
+use RedJePakketje\Shipping\Helper\TrackingHelper;
 use Magento\Shipping\Block\Adminhtml\View as ViewBlock;
 
 class ViewBlockPlugin
