@@ -1,5 +1,11 @@
 Release Notes
 =============
+1.0.5
+-----
+Refactoring:
+
+* Renamed the API folder conform the Magento standard (Camelcase).
+
 1.0.4
 -----
 Added logic:
