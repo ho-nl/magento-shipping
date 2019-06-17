@@ -8,7 +8,7 @@
         <section id="redjepakketje_api_configuration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>API Configuration</label>
             <tab>redjepakketje</tab>
-            <resource>Cream_RedJePakketje::api_config</resource>
+            <resource>RedJePakketje_Shipping::api_config</resource>
 
             <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
@@ -54,20 +54,20 @@
         <section id="redjepakketje_label_configuration"  translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Label Configuration</label>
             <tab>redjepakketje</tab>
-            <resource>Cream_RedJePakketje::label_config</resource>
+            <resource>RedJePakketje_Shipping::label_config</resource>
 
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
 
                 <field id="label_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Label Type</label>
-                    <source_model>Cream\RedJePakketje\Model\Config\Source\LabelType</source_model>
+                    <source_model>RedJePakketje\Shipping\Model\Config\Source\LabelType</source_model>
                     <comment>The type of the label (e.g: PDF, PNG or ZPL) when generated.</comment>
                 </field>
 
                 <field id="label_size" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Label Size</label>
-                    <source_model>Cream\RedJePakketje\Model\Config\Source\LabelSize</source_model>
+                    <source_model>RedJePakketje\Shipping\Model\Config\Source\LabelSize</source_model>
                     <comment>The size of the label (e.g: A6 or A7) when generated.</comment>
                 </field>
 
@@ -82,7 +82,7 @@
         <section id="redjepakketje_tracking_configuration"  translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Tracking Configuration</label>
             <tab>redjepakketje</tab>
-            <resource>Cream_RedJePakketje::tracking_config</resource>
+            <resource>RedJePakketje_Shipping::tracking_config</resource>
 
             <group id="email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Settings</label>
@@ -178,21 +178,21 @@
 
                 <field id="weekend_days" translate="label" type="multiselect" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Weekend Days</label>
-                    <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
+                    <source_model>RedJePakketje\Shipping\Model\Config\Source\Weekdays</source_model>
                     <comment>Can modify which days are considered as weekend (affects title and description).</comment>
                     <can_be_empty>1</can_be_empty>
                 </field>
 
                 <field id="holidays" translate="label" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Holidays</label>
-                    <frontend_model>Cream\RedJePakketje\Block\Adminhtml\System\Config\Form\Field\Holidays</frontend_model>
-                    <backend_model>Cream\RedJePakketje\Model\Config\Source\Holidays</backend_model>
+                    <frontend_model>RedJePakketje\Shipping\Block\Adminhtml\System\Config\Form\Field\Holidays</frontend_model>
+                    <backend_model>RedJePakketje\Shipping\Model\Config\Source\Holidays</backend_model>
                     <comment>Can modify which days are considered as a holiday (affects title and description, year is ignored).</comment>
                 </field>
 
                 <field id="pickup_days" translate="label" type="multiselect" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Pickup Days</label>
-                    <source_model>Cream\RedJePakketje\Model\Config\Source\Weekdays</source_model>
+                    <source_model>RedJePakketje\Shipping\Model\Config\Source\Weekdays</source_model>
                     <comment>This shipping method is hidden on non-pickup days.</comment>
                     <can_be_empty>1</can_be_empty>
                 </field>

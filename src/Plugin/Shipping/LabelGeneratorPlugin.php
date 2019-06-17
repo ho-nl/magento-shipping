@@ -1,16 +1,16 @@
 <?php
 
-namespace Cream\RedJePakketje\Plugin\Shipping;
+namespace RedJePakketje\Shipping\Plugin\Shipping;
 
 use Magento\Sales\Model\Order\Shipment\TrackFactory;
 use Magento\Shipping\Model\Shipping\LabelsFactory;
-use Cream\RedJePakketje\Helper\LabelHelper;
+use RedJePakketje\Shipping\Helper\LabelHelper;
 use Magento\Shipping\Model\Shipping\LabelGenerator;
 use Magento\Sales\Model\Order\Shipment;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Store\Model\ScopeInterface;
-use Cream\RedJePakketje\Model\Config\Source\LabelType;
+use RedJePakketje\Shipping\Model\Config\Source\LabelType;
 
 class LabelGeneratorPlugin
 {

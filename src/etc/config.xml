@@ -3,7 +3,7 @@
     <default>
         <carriers>
             <redjepakketjeStandard>
-                <model>Cream\RedJePakketje\Model\StandardCarrier</model>
+                <model>RedJePakketje\Shipping\Model\StandardCarrier</model>
                 <title>Red Je Pakketje</title>
                 <title_before_cutoff>RJP</title_before_cutoff>
                 <title_after_cutoff>RJP</title_after_cutoff>

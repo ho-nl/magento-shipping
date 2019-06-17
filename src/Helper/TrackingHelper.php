@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Helper;
+namespace RedJePakketje\Shipping\Helper;
 
 use Magento\Sales\Model\Order\Shipment\Track as TrackModel;
 

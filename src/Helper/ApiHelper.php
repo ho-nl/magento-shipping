@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Helper;
+namespace RedJePakketje\Shipping\Helper;
 
 class ApiHelper extends BaseHelper
 {

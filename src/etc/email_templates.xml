@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-    <template id="redjepakketje_tracking_configuration_email_tracking_template" label="Red Je Pakketje Tracking Information" file="tracking.html" type="html" module="Cream_RedJePakketje" area="frontend" />
+    <template id="redjepakketje_tracking_configuration_email_tracking_template" label="Red Je Pakketje Tracking Information" file="tracking.html" type="html" module="RedJePakketje_Shipping" area="frontend" />
 </config>

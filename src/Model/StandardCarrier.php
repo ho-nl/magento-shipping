@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Model;
+namespace RedJePakketje\Shipping\Model;
 
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
@@ -8,7 +8,7 @@ use Magento\Quote\Model\Quote\Item as QuoteItemModel;
 use Magento\Shipping\Model\Shipment\Request;
 use Magento\Framework\DataObjectFactory;
 use Magento\Framework\DataObject;
-use Cream\RedJePakketje\Helper\ApiHelper;
+use RedJePakketje\Shipping\Helper\ApiHelper;
 
 class StandardCarrier extends AbstractCarrier
 {

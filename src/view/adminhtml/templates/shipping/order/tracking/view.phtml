@@ -10,8 +10,8 @@
 <?php /** @var $block Magento\Shipping\Block\Adminhtml\Order\Tracking\View */ ?>
 <?php $order = $block->getShipment()->getOrder();?>
 <?php $isRedJePakketje = (strpos($order->getShippingMethod(), 'redjepakketje') !== false); ?>
-<?php $labelHelper = $this->helper('\Cream\RedJePakketje\Helper\LabelHelper'); ?>
-<?php $trackingHelper = $this->helper('\Cream\RedJePakketje\Helper\TrackingHelper'); ?>
+<?php $labelHelper = $this->helper('\RedJePakketje\Shipping\Helper\LabelHelper'); ?>
+<?php $trackingHelper = $this->helper('\RedJePakketje\Shipping\Helper\TrackingHelper'); ?>
 <div class="admin__control-table-wrapper">
     <table class="data-table admin__control-table" id="shipment_tracking_info">
         <thead>

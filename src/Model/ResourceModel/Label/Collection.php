@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Model\ResourceModel\Label;
+namespace RedJePakketje\Shipping\Model\ResourceModel\Label;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
@@ -13,6 +13,6 @@ class Collection extends AbstractCollection
 
     protected function _construct()
     {
-        $this->_init('Cream\RedJePakketje\Model\Label', 'Cream\RedJePakketje\Model\ResourceModel\Label');
+        $this->_init('RedJePakketje\Shipping\Model\Label', 'RedJePakketje\Shipping\Model\ResourceModel\Label');
     }
 }

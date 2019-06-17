@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Setup;
+namespace RedJePakketje\Shipping\Setup;
 
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\InstallSchemaInterface;

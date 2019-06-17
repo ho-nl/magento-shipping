@@ -1,10 +1,10 @@
 <?php
 
-namespace Cream\RedJePakketje\Plugin\Order;
+namespace RedJePakketje\Shipping\Plugin\Order;
 
 use Magento\Framework\Event\ObserverInterface;
-use Cream\RedJePakketje\Helper\LabelHelper;
-use Cream\RedJePakketje\Model\Repository\LabelRepository;
+use RedJePakketje\Shipping\Helper\LabelHelper;
+use RedJePakketje\Shipping\Model\Repository\LabelRepository;
 use Magento\Framework\Event\Observer;
 use Magento\Sales\Model\Order\Shipment\Track as TrackModel;
 

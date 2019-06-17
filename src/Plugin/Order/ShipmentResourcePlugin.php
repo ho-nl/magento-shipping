@@ -1,9 +1,9 @@
 <?php
 
-namespace Cream\RedJePakketje\Plugin\Order;
+namespace RedJePakketje\Shipping\Plugin\Order;
 
-use Cream\RedJePakketje\Helper\BaseHelper;
-use Cream\RedJePakketje\Service\LabelGeneratorService;
+use RedJePakketje\Shipping\Helper\BaseHelper;
+use RedJePakketje\Shipping\Service\LabelGeneratorService;
 use Magento\Sales\Model\ResourceModel\Order\Shipment as ShipmentResource;
 use Magento\Sales\Model\Order\Shipment as ShipmentModel;
 

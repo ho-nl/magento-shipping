@@ -1,10 +1,10 @@
 <?php
 
-namespace Cream\RedJePakketje\Service;
+namespace RedJePakketje\Shipping\Service;
 
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Sales\Model\Order\Address\Renderer as AddressRenderer;
-use Cream\RedJePakketje\Helper\TrackingHelper;
+use RedJePakketje\Shipping\Helper\TrackingHelper;
 use Magento\Sales\Model\Order\Shipment\Track as TrackModel;
 use Magento\Sales\Model\Order\Shipment as ShipmentModel;
 use Magento\Sales\Model\Order as OrderModel;

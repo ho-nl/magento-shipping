@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Model;
+namespace RedJePakketje\Shipping\Model;
 
 use Magento\Shipping\Model\Carrier\AbstractCarrierOnline;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
@@ -20,8 +20,8 @@ use Magento\Directory\Model\CurrencyFactory;
 use Magento\Directory\Helper\Data as DirectoryHelper;
 use Magento\CatalogInventory\Api\StockRegistryInterface;
 use Magento\Framework\DataObjectFactory;
-use Cream\RedJePakketje\Helper\BaseHelper as RedJePakketjeHelper;
-use Cream\RedJePakketje\Service\ApiRequestService;
+use RedJePakketje\Shipping\Helper\BaseHelper as RedJePakketjeHelper;
+use RedJePakketje\Shipping\Service\ApiRequestService;
 use Magento\Quote\Model\Quote\Address\RateResult\Method;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Framework\DataObject;

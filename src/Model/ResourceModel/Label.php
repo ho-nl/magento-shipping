@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Model\ResourceModel;
+namespace RedJePakketje\Shipping\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 

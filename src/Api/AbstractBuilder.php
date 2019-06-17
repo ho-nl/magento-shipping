@@ -1,10 +1,10 @@
 <?php
 
-namespace Cream\RedJePakketje\API;
+namespace RedJePakketje\Shipping\Api;
 
-use Cream\RedJePakketje\Helper\ApiHelper;
-use Cream\RedJePakketje\Helper\BaseHelper;
-use Cream\RedJePakketje\Helper\LabelHelper;
+use RedJePakketje\Shipping\Helper\ApiHelper;
+use RedJePakketje\Shipping\Helper\BaseHelper;
+use RedJePakketje\Shipping\Helper\LabelHelper;
 
 abstract class AbstractBuilder
 {

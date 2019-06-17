@@ -4,6 +4,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Cream_RedJePakketje',
+    'RedJePakketje_Shipping',
     sprintf('%s/src', __DIR__)
 );

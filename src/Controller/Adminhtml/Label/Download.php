@@ -1,13 +1,13 @@
 <?php
 
-namespace Cream\RedJePakketje\Controller\Adminhtml\Label;
+namespace RedJePakketje\Shipping\Controller\Adminhtml\Label;
 
 use Magento\Backend\App\Action as BackendAction;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Response\Http\FileFactory;
 use Magento\Shipping\Model\Shipping\LabelGenerator;
-use Cream\RedJePakketje\Model\Repository\LabelRepository;
-use Cream\RedJePakketje\Model\Config\Source\LabelType;
+use RedJePakketje\Shipping\Model\Repository\LabelRepository;
+use RedJePakketje\Shipping\Model\Config\Source\LabelType;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
 class Download extends BackendAction

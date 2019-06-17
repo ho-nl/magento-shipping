@@ -1,6 +1,6 @@
 <?php
 
-namespace Cream\RedJePakketje\Helper;
+namespace RedJePakketje\Shipping\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
@@ -9,7 +9,7 @@ use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Magento\Backend\Model\UrlInterface as BackendUrl;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Cream\RedJePakketje\Model\Config\Source\Weekdays;
+use RedJePakketje\Shipping\Model\Config\Source\Weekdays;
 
 class BaseHelper extends AbstractHelper
 {
