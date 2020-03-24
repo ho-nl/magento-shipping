@@ -1,6 +1,6 @@
 {
   "name": "redjepakketje/module-shipping",
-  "description": "Red je Pakketje Shipments module for Magento 2.",
+  "description": "Red je Pakketje shipping module for Magento 2",
   "type": "magento2-module",
   "license": [
     "OSL-3.0"
