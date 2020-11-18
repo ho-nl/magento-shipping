@@ -27,5 +27,13 @@
                 <tracking_template>redjepakketje_tracking_configuration_email_tracking_template</tracking_template>
             </email>
         </redjepakketje_tracking_configuration>
+
+        <redjepakketje_label_configuration>
+            <general>
+                <label_type>PDF</label_type>
+                <label_size>A6</label_size>
+                <auto_generate>1</auto_generate>
+            </general>
+        </redjepakketje_label_configuration>
     </default>
 </config>
