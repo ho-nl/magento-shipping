@@ -15,11 +15,7 @@ class Weekdays implements ArrayInterface
     const SATURDAY = 6;
 
     /**
-     * Product options for PostNL labeling/barcode service.
-     *
-     * For more information, refer to:
-     * https://developer.postnl.nl/apis/barcode-webservice/how-use
-     * https://developer.postnl.nl/apis/labelling-webservice/how-use
+     * Weekday options
      *
      * @return array
      */

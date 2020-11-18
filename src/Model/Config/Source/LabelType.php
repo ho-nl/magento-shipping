@@ -11,11 +11,7 @@ class LabelType implements ArrayInterface
     const ZPL = 'zpl';
 
     /**
-     * Product options for PostNL labeling/barcode service.
-     *
-     * For more information, refer to:
-     * https://developer.postnl.nl/apis/barcode-webservice/how-use
-     * https://developer.postnl.nl/apis/labelling-webservice/how-use
+     * Available Label types
      *
      * @return array
      */
