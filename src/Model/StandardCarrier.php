@@ -152,6 +152,20 @@ class StandardCarrier extends AbstractCarrier
         } else {
             $shippingPrice = $this->getConfigData('price_after_cutoff');
         }
+        
+        if($carrier == 'redjepakketjeStandard'){
+            $freeShippingFromPrice = $this->getConfigData('free_shipping_from_price');
+            $isTaxIncluded = $this->getConfigData('free_shipping_Incl_tax');
+
+            if(isset($freeShippingFromPrice) && isset($isTaxIncluded)){
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+
+                $cartPrice = $isTaxIncluded ? $cart->getQuote()->getGrandTotal() : $cart->getQuote()->getSubtotal();
+
+                $shippingPrice = $cartPrice >= $freeShippingFromPrice ? 0 : $shippingPrice;
+            }
+        }
 
         return $shippingPrice ?: 0;
     }
