@@ -124,6 +124,15 @@
                     <label>Displayed Error Message</label>
                     <comment>This is shown if the method is not applicable</comment>
                 </field>
+                
+                <field id="free_shipping_from_price" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Free shipping price</label>
+                </field>
+
+                <field id="free_shipping_Incl_tax" translate="label" type="select" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Free shipping price incl. TAX</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
 
                 <field id="title_before_cutoff" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Title (before cut-off)</label>
