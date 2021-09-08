@@ -202,10 +202,10 @@ abstract class AbstractCarrier extends AbstractCarrierOnline implements CarrierI
     /**
      * Get the price for the given shipping method
      *
-     * @param string $carrier
-     * @return null|float
+     * @param $carrier
+     * @param $request
      */
-    protected function getShippingPrice($carrier)
+    protected function getShippingPrice($carrier, $request)
     {
         // Implemented in the specific carriers
     }
