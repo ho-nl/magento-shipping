@@ -143,9 +143,10 @@ class StandardCarrier extends AbstractCarrier
      * Get the price for the given shipping method
      *
      * @param string $carrier
-     * @return float
+     * @param RateRequest $request
+     * @return false|float|int|string|null
      */
-    protected function getShippingPrice($carrier)
+    protected function getShippingPrice($carrier, $request)
     {
         if ($this->redJePakketjeHelper->getIsBeforeCutoff($carrier)) {
             $shippingPrice = $this->getConfigData('price_before_cutoff');
@@ -153,18 +154,9 @@ class StandardCarrier extends AbstractCarrier
             $shippingPrice = $this->getConfigData('price_after_cutoff');
         }
         
-        if($carrier == 'redjepakketjeStandard'){
-            $freeShippingFromPrice = $this->getConfigData('free_shipping_from_price');
-            $isTaxIncluded = $this->getConfigData('free_shipping_Incl_tax');
-
-            if(isset($freeShippingFromPrice) && isset($isTaxIncluded)){
-                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-                $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
-
-                $cartPrice = $isTaxIncluded ? $cart->getQuote()->getGrandTotal() : $cart->getQuote()->getSubtotal();
-
-                $shippingPrice = $cartPrice >= $freeShippingFromPrice ? 0 : $shippingPrice;
-            }
+        $freeShippingFromPrice = $this->getConfigData('free_shipping_from_price');
+        if(isset($freeShippingFromPrice)){
+            $shippingPrice = $request->getPackageValueWithDiscount() >= $freeShippingFromPrice ? 0 : $shippingPrice;
         }
 
         return $shippingPrice ?: 0;
