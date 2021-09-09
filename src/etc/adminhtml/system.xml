@@ -127,6 +127,7 @@
                 
                 <field id="free_shipping_from_price" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Free shipping price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
                 </field>
 
                 <field id="title_before_cutoff" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
